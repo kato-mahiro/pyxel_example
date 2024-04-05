@@ -43,9 +43,9 @@ class BalloonGame:
 
     def move_balloon(self):
         if pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.KEY_A):
-            self.balloon_x_v = max(self.balloon_x_v - 0.2, -1)
+            self.balloon_x_v = max(self.balloon_x_v - 0.1, -0.5)
         if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.KEY_D):
-            self.balloon_x_v = min(self.balloon_x_v + 0.2, 1)
+            self.balloon_x_v = min(self.balloon_x_v + 0.1, 0.5)
         if pyxel.btn(pyxel.KEY_SPACE) and self.balloon_y > 0:
             self.balloon_y -= 0.5
             self.balloon_y_v = 0
@@ -97,6 +97,7 @@ class BalloonGame:
 
         if self.game_over:
             pyxel.text(50, 60, "GAME OVER", pyxel.frame_count % 16)
+            pyxel.text(38, 80, "PUSH SPACE KEY TO UP!!", 8)
             pyxel.text(43, 70, "Press R to Retry", 8)
 
         if self.game_clear:
